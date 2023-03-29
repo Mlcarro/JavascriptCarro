@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/svg+xml" href="./css/img/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart Js</title>
+    <link rel="stylesheet" href="./style.css">
+    
+</head>
+<body>
+    <header>
+        <div class="header-section container">
+            <img class="logo" src="./css/img/logoShop.png" alt="">
+            <div>
+                <img onclick="showCart(this)" class="cart" src="./css/img/cart.png" alt="">
+                <p class="count-product">0</p>
+            </div>
+            <div class="cart-products" id="products-id">
+                <p class="close-btn" onclick="closeBtn()">X</p>
+                <h3 id="tituloPrincipal">Mi carrito</h3>
+                <div class="card-items">
+                    
+                </div>
+                <h2>Total: $<strong class="price-total">0</strong></h2>
+            </div>
+        </div>
+    </header>
+    <section class="container">
+        <div class="products">
+            <div class="carts">
+                <div>
+                    <img src="./css/img/products/keyboard-1.jpg" alt="">
+                    <p><span>2000</span>$</p>
+                </div>
+                <p class="title">Tempest Cataclysm </p>
+                <a href="" data-id="1" class="btn-add-cart">add to cart</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="./css/img/products/keyboard-2.jpg" alt="">
+                    <p><span>3500</span>$</p>
+                </div>
+                <p class="title">  Teclado Mecánico </p>
+                <a href="" class="btn-add-cart" data-id="2">add to cart</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="./css/img/products/keyboard-3.jpg" alt="">
+                    <p><span>1500</span>$</p>
+                </div>
+                <p class="title"> Aukey KM-G16 Teclado </p>
+                <a href="" data-id="3" class="btn-add-cart">add to cart</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="./css/img/products/keyboard-4.jpg" alt="">
+                    <p><span>2000</span>$</p>
+                </div>
+                <p class="title"> Razer Huntsman Elite </p>
+                <a href="" data-id="4" class="btn-add-cart">add to cart</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="./css/img/products/keyboard-5.jpg" alt="">
+                    <p><span>1900</span>$</p>
+                </div>
+                <p class="title"> Trust GXT 856 Torac </p>
+                <a href="" data-id="5" class="btn-add-cart">add to cart</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="./css/img/products/keyboard-1.jpg" alt="">
+                    <p><span>4500</span>$</p>
+                </div>
+                <p class="title"> MSI Vigor GK30 </p>
+                <a href="" data-id="6" class="btn-add-cart">add to cart</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="./css/img/products/keyboard-2.jpg" alt="">
+                    <p><span>2300</span>$</p>
+                </div>
+                <p class="title"> Genesis Thor 300 RGB </p>
+                <a href="" data-id="7" class="btn-add-cart">add to cart</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="./css/img/products/keyboard-3.jpg" alt="">
+                    <p><span>5000</span>$</p>
+                </div>
+                <p class="title"> Mars Gaming MKXTKL </p>
+                <a href="" data-id="8" class="btn-add-cart">add to cart</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="./css/img/products/keyboard-4.jpg" alt="">
+                    <p><span>1600</span>$</p>
+                </div>
+                <p class="title"> Trust GXT 881 Odyss Teclado</p>
+                <a href="" data-id="9" class="btn-add-cart">add to cart</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="./css/img/products/keyboard-5.jpg" alt="">
+                    <p><span>1700</span>$</p>
+                </div>
+                <p class="title"> Krom Krusher Teclado Gaming </p>
+                <a href="" data-id="10" class="btn-add-cart">add to cart</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="./css/img/products/keyboard-1.jpg" alt="">
+                    <p><span>4500</span>$</p>
+                </div>
+                <p class="title"> Corsair K55 RGB PRO XT </p>
+                <a href="" data-id="11" class="btn-add-cart">add to cart</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        
+    </footer>
+
+    <script>
+        function showCart(x){
+            document.getElementById("products-id").style.display = "block";
+        }
+        function closeBtn(){
+             document.getElementById("products-id").style.display = "none";
+        }
+
+
+        lst = [{
+            name: "teclado1",
+            number: 2
+        },{
+            name: "teclado2",
+            Number: 3
+        }]
+
+        localStorage.setItem("list", JSON.stringify(lst))
+   
+   </script>
+    <script src="./custom.js" ></script>
+</body>
+</html>
