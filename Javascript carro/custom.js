@@ -1,4 +1,6 @@
-const tituloPrincipal = document.getElementById("tituloPrincipal");
+
+
+ const tituloPrincipal = document.getElementById("tituloPrincipal");
 console.log(tituloPrincipal);
 
 let allContainerCart = document.querySelector('.products');
@@ -11,18 +13,18 @@ let buyThings = [];
 let totalCard = 0;
 let countProduct = 0;
 
+loadEventListeners();
 
-loadEventListenrs();
-function loadEventListenrs(){
+function loadEventListeners() {
     allContainerCart.addEventListener('click', addProduct);
-
     containerBuyCart.addEventListener('click', deleteProduct);
+    document.addEventListener('DOMContentLoaded', loadItems);
 }
 
-function addProduct(e){
+function addProduct(e) {
     e.preventDefault();
     if (e.target.classList.contains('btn-add-cart')) {
-        const selectProduct = e.target.parentElement; 
+        const selectProduct = e.target.parentElement;
         readTheContent(selectProduct);
     }
 }
@@ -34,15 +36,15 @@ function deleteProduct(e) {
         buyThings.forEach(value => {
             if (value.id == deleteId) {
                 let priceReduce = parseFloat(value.price) * parseFloat(value.amount);
-                totalCard =  totalCard - priceReduce;
+                totalCard = totalCard - priceReduce;
                 totalCard = totalCard.toFixed(2);
             }
         });
         buyThings = buyThings.filter(product => product.id !== deleteId);
-        
+
         countProduct--;
     }
-  
+
     if (buyThings.length === 0) {
         priceTotal.innerHTML = 0;
         amountProduct.innerHTML = 0;
@@ -50,7 +52,7 @@ function deleteProduct(e) {
     loadHtml();
 }
 
-function readTheContent(product){
+function readTheContent(product) {
     const infoProduct = {
         image: product.querySelector('div img').src,
         title: product.querySelector('.title').textContent,
@@ -78,13 +80,12 @@ function readTheContent(product){
         countProduct++;
     }
     loadHtml();
-   
 }
 
-function loadHtml(){
+function loadHtml() {
     clearHtml();
     buyThings.forEach(product => {
-        const {image, title, price, amount, id} = product;
+        const { image, title, price, amount, id } = product;
         const row = document.createElement('div');
         row.classList.add('item');
         row.innerHTML = `
@@ -104,6 +105,19 @@ function loadHtml(){
         amountProduct.innerHTML = countProduct;
     });
 }
- function clearHtml(){
+
+function clearHtml() {
     containerBuyCart.innerHTML = '';
- }
+}
+
+function loadItems() {
+    const products = [];
+
+    // Cargar los productos desde un archivo JSON local
+    fetch('products.json')
+        .then(response => response.json())
+        .then(data => {
+            products.push(...data);
+            display})
+        }
+            
